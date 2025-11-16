@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microdata - bok</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Passions+Conflict&display=swap');
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .container{
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        #page-header{
+            background-color: brown;
+            color: #fff;
+        }
+        header nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .article-content{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .article-content section{
+            width: 70%;
+        }
+
+        .article-content figure{
+            width: 30%;
+            margin: 0;
+        }
+        h2{
+            margin: 0;
+        }
+        main{
+            padding: 2rem 0;
+        }
+        .breadcrumbs {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .breadcrumbs li{
+            display: inline-block;
+        }
+        .breadcrumbs li a{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!--Oppgave: Fyll siden med fornuftig microdata, med riktig markering er det også flere elementer som registreres som rich results i google, husk å test og validerer i både validatoren og rich result -->
+    <header id="page-header">
+        <nav class="container">
+            <h3>Logo</h3>
+            <form>
+                <input type="search" name="search">
+                <button>Søk</button>
+            </form>
+        </nav>
+    </header>
+    <div class="container"> 
+        <nav>
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumbs">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#">
+                        <span itemprop="name">Eventyr ></span>
+                    </a>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="#">
+                        <span itemprop="name">Witcher ></span>
+                    </a>
+                    <meta itemprop="position" content="2">
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <b><a href="#">
+                        <span itemprop="name">Tower of the Swallow</span>
+                    </a></b>
+                    <meta itemprop="position" content="3">
+                </li>
+            </ul>
+        </nav>
+        <main itemscope itemtype="https://schema.org/Product">
+            <article class="article-content">
+                <figure>
+                    <img itemprop="image" src="https://s1.adlibris.com/images/56720886/tower-of-the-swallow.jpg" alt="bilde av witcher bok">
+                </figure>
+                <section>
+                    <header>
+                        <h2 itemprop="name">Tower of the Swallow</h2><span>- pocket, Engelsk, 2020</span>
+                    </header>
+                    <div>
+                    <span>Forfatter: Andrzej Sapkowski</span>
+                    </div>
+                    <span id="price"></span>
+                    <form>
+                        <fieldset>
+                            <label for="amount">Antall</label>
+                            <input type="number" max="10" min="1" name="amount" value="1" id="amount">
+                            <button>Legg i handlekurv</button>
+                        </fieldset>
+                    </form>
+                    <article>
+                        <h4 itemprop="description">Beskrivelse</h4>
+                        <p>The world is at war and the prophesied saviour is missing in the fourth novel in the New York Times bestselling Witcher series that inspired the #1 most watched Netflix series of 2019</p>
+                    </article>
+                    <article itemscope itemtype="https://schema.org/Book">
+                        <h4>Produktinformasjon</h4>
+                        <table>
+                            <tr itemprop="author" itemscope itemtype="https://schema.org/Person">
+                                <td itemprop="name">Forfatter: Andrzej Sapkowski</td>
+                                <td itemprop="weight">Vekt: 324 gram</td>
+                            </tr>
+                            <tr>
+                                <td>Undertittel: Witcher 4 - now a major netflix show</td>
+                                <td>Serie: The Witcher</td>
+                            </tr>
+                            <tr>
+                                <td itemprop="isbn">ISBN: 9781473231115</td>
+                                <td itemprop="datePublished" datetime="2020-02-13">Utgitt: 2020-02-13</td>
+                            </tr>
+                            <tr itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                                <td>Språk: Engelsk</td>
+                                <td itemprop="name">Forlag: Orion</td>
+                            </tr>
+                            <tr>
+                                <td itemprop="numberOfPages" colspan="2">Antall sider: 464</td>
+                            </tr>
+                        </table>
+                    </article>
+                </section>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
